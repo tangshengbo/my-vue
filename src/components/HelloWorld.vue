@@ -143,13 +143,16 @@
           },
           yAxis: {},
           series:
-            [
-              {
-                name: '销量',
-                type: 'bar',
-                data: [5, 20, 36, 10, 10, 20]
-              }
-            ],
+            {
+              itemStyle: {
+                normal: {
+                  color:["#6cacde"]
+                }
+              },
+              name: '销量',
+              type: 'bar',
+              data: [5, 20, 50, 10, 10, 20]
+            },
 
         }
       };
@@ -166,13 +169,13 @@
         console.info(value.data);
         console.info(value.status);
         this.accountList = value.data.data;
-        this.bar.xAxis.data = this.accountList.map(account => {
-          return account.name;
-        });
-
-        this.bar.series[0].data = this.accountList.map(account => {
-          return account.id;
-        })
+        // this.bar.xAxis.data = this.accountList.map(account => {
+        //   return account.name;
+        // });
+        //
+        // this.bar.series.data = this.accountList.map(account => {
+        //   return account.id;
+        // })
 
 
       });
