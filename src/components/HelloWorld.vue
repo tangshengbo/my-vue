@@ -77,6 +77,7 @@
     </div>
     <div id="app">
       <v-chart class="my-chart" :options="bar"/>
+      <v-chart class="my-chart" :options="pie"/>
     </div>
   </div>
 </template>
@@ -95,6 +96,7 @@
   import * as qs from "qs";
   import ECharts from "vue-echarts/components/ECharts";
   import "echarts/lib/chart/bar";
+  import "echarts/lib/chart/pie";
 
   axios.defaults.baseURL = 'http://localhost:8085/portal';
   export default {
@@ -114,6 +116,20 @@
           {text: 'Vue'},
           {text: '看看'}
         ],
+        pie:
+          {
+            color: ['#f6da22', '#bbe2e8', '#6cacde'],
+            series:
+              {
+                type: 'pie',
+                data: [
+                  {name: 'A', value: 1212},
+                  {name: 'B', value: 2323},
+                  {name: 'C', value: 1919}
+                ]
+              }
+          }
+        ,
         bar: {
           title: {
             text: "ECharts 入门示例"
@@ -126,13 +142,15 @@
             data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
           },
           yAxis: {},
-          series: [
-            {
-              name: "销量",
-              type: "bar",
-              data: [5, 20, 36, 10, 10, 20]
-            }
-          ]
+          series:
+            [
+              {
+                name: '销量',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20]
+              }
+            ],
+
         }
       };
     },
